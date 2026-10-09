@@ -126,7 +126,9 @@ function viewStatus() {
     <h2>Oldest open change orders</h2><div class="card">${oldest.length ? oldest.map(c => `<div class="row"><span><strong>${esc(c.no)}</strong> ${esc(c.desc)}</span><span class="v">${daysOpen(c)} d</span></div>`).join('') : '<div class="muted">None open.</div>'}</div>
     <h2>RAID summary</h2><div class="card"><table><tr><th>Type</th><th>Open</th><th>Closed</th></tr>${raidRows}</table></div>
     <h2>Commentary</h2>${note('done', 'Done this period')}${note('next', 'Planned next 14 days')}${note('decisions', 'Decisions / escalations needed')}
-    <div class="btns no-print"><button class="btn primary" data-act="print">Print / save as PDF</button></div>`;
+    <div class="btns no-print"><button class="btn primary" data-act="print">Print / save as PDF</button></div>
+    <div class="card no-print"><strong>Prefer Excel?</strong><p class="muted">The same change order log and one-page report as an Excel workbook.</p>
+      <a href="toolkit/">See the Excel toolkit</a></div>`;
 }
 
 function viewChanges() {
