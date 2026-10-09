@@ -184,7 +184,9 @@ function viewSettings() {
       <button class="btn" data-act="sample">Load sample data</button>
       <button class="btn danger" data-act="wipe">Delete all data</button>
       <button class="btn" data-act="install" id="installBtn" hidden>Install app</button>
-    </div><p class="muted">CSV columns match the Excel toolkit, so you can move data between the two. Not accounting or contractual advice - check amounts against your contract.</p></div>`;
+    </div><p class="muted">CSV columns match the Excel toolkit, so you can move data between the two. Not accounting or contractual advice - check amounts against your contract.</p></div>
+    <div class="card"><strong>Prefer Excel?</strong><p class="muted">The Change Order &amp; Status Report Toolkit is the same log and one-page report as an Excel workbook.</p>
+      <a class="btn" href="toolkit/" style="display:inline-flex;align-items:center;text-decoration:none">See the Excel toolkit</a></div>`;
 }
 
 // ---------- forms

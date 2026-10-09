@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1f3864">
+<title>Change Order &amp; Status Report Toolkit for Excel</title>
+<meta name="description" content="An Excel workbook for project managers: log change orders and RAID items once, get a one-page status report automatically.">
+<style>
+  :root { --bg:#f4f6fa; --card:#fff; --ink:#1a2233; --muted:#5b6578; --line:#d9dee8; --navy:#1f3864; --accent:#2b5cb8; --on:#fff; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0f1522; --card:#182033; --ink:#e8ecf5; --muted:#a3adc2; --line:#2b3550; --navy:#14213d; --accent:#6f9bff; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+  header.hero { background: var(--navy); color: var(--on); padding: 48px 0 56px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; opacity: .8; margin: 0 0 10px; }
+  h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; margin: 0 0 14px; }
+  .lead { font-size: 1.1rem; max-width: 40em; opacity: .95; margin: 0 0 24px; }
+  .buy { display: inline-block; background: #fff; color: var(--navy); font-weight: 700; padding: 14px 26px; border-radius: 10px; text-decoration: none; border: 0; font-size: 1.05rem; cursor: pointer; }
+  .buy:hover { filter: brightness(.95); }
+  .buy[aria-disabled="true"] { opacity: .6; cursor: not-allowed; }
+  .price { margin-left: 14px; font-size: 1.05rem; }
+  .note { font-size: .88rem; opacity: .85; margin-top: 12px; }
+  section { padding: 36px 0 4px; }
+  h2 { font-size: 1.4rem; margin: 0 0 12px; color: var(--navy); }
+  @media (prefers-color-scheme: dark) { h2 { color: var(--accent); } }
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+  figure { margin: 0; }
+  figure img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; background: #fff; display: block; }
+  figcaption { color: var(--muted); font-size: .88rem; margin-top: 8px; }
+  ul.tick { list-style: none; padding: 0; margin: 0; }
+  ul.tick li { padding: 6px 0 6px 28px; position: relative; }
+  ul.tick li::before { content: "\2713"; position: absolute; left: 4px; color: var(--accent); font-weight: 700; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin: 8px 0 0; color: var(--muted); }
+  .cta { text-align: center; padding: 40px 0 56px; }
+  .cta .buy { background: var(--accent); color: #fff; }
+  footer { border-top: 1px solid var(--line); padding: 20px 0 36px; color: var(--muted); font-size: .88rem; }
+  a { color: var(--accent); }
+  :focus-visible { outline: 3px solid #f5b400; outline-offset: 2px; }
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <p class="eyebrow">For construction &amp; engineering project managers</p>
+  <h1>Stop chasing change orders across scattered spreadsheets.</h1>
+  <p class="lead">Log each change order once. Get your weekly one-page status report automatically: cost impact, schedule impact, overdue items, and a RAID summary.</p>
+  <a class="buy" id="buy1" href="#">Get the toolkit</a><span class="price" data-price></span>
+  <p class="note">One-time purchase. The Excel workbook (.xlsx) is sent to the email you pay with.</p>
+</div></header>
+
+<main class="wrap">
+  <section>
+    <h2>The problem it solves</h2>
+    <p>If you manage projects, you probably track changes in a personal Excel sheet, rebuild the status report by hand every week, and find out an approval has been stuck for a month only when someone asks. This workbook keeps the log, the aging flags and the report in one place, so the report builds itself from the log.</p>
+  </section>
+
+  <section>
+    <h2>What you get</h2>
+    <div class="grid">
+      <div class="card"><h3>Change order log</h3><p>One row per change: status, direct cost, markup, schedule days, dates. Total cost impact and days-open calculate for you, with dropdowns for status and type.</p></div>
+      <div class="card"><h3>One-page status report</h3><p>Health lights, original vs. revised contract value, pending exposure, schedule impact, the five oldest open items, and boxes for your commentary. Prints to a single page.</p></div>
+      <div class="card"><h3>RAID log</h3><p>Risks, assumptions, issues and dependencies with an owner, due date and a probability &times; impact score. Overdue and high-rated items flow into the report.</p></div>
+      <div class="card"><h3>Overdue flags</h3><p>Set your own limit in days. Anything pending longer is flagged, so stalled approvals show up before the meeting, not during it.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>See the report</h2>
+    <figure>
+      <img src="img/status-report.png" width="1008" height="1376" alt="Example one-page project status report showing health lights, cost summary, schedule impact, change orders by status, oldest open change orders and RAID summary" loading="lazy">
+      <figcaption>Example report built from sample data included in the workbook.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Also included: a free phone app</h2>
+    <p>Site staff won't open a laptop to log a change. The companion <a href="../">Change Order Tracker app</a> works offline on any phone, takes photos, and exports the same one-page report. Its data exports as CSV with the same columns as the workbook. The app is free to use whether or not you buy the toolkit.</p>
+  </section>
+
+  <section>
+    <h2>Built by a project manager</h2>
+    <p>I'm an engineer working as a project manager. I built this because I kept seeing the same problem: changes tracked in private spreadsheets, reports rebuilt by hand, and approvals that go quiet. I'm sharing it early, so tell me what's missing and I'll improve it.</p>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <details><summary>Does it work in Excel and Google Sheets?</summary><p>It's built and tested in Microsoft Excel. It uses only standard functions and should open in Google Sheets, but I have not tested it there yet.</p></details>
+    <details><summary>Does it replace my contract or accounting records?</summary><p>No. It's a tracking aid. Always check amounts and approvals against your contract documents.</p></details>
+    <details><summary>How many change orders can it hold?</summary><p>200 change orders and 100 RAID items per file. You can extend it by copying the last row's formulas down.</p></details>
+    <details><summary>Are the example rows included?</summary><p>Yes. A few example rows show the format. Delete them or type over them.</p></details>
+    <details><summary>Can I get help or request a change?</summary><p data-contact>Contact details will be added here.</p></details>
+  </section>
+
+  <div class="cta">
+    <a class="buy" id="buy2" href="#">Get the toolkit</a><span class="price" data-price></span>
+  </div>
+</main>
+
+<footer><div class="wrap">Not accounting, legal or contractual advice. Payments are processed by Stripe; I never see your card details.</div></footer>
+
+<script>
+  // ---- Edit these three values before publishing --------------------------
+  const PAYMENT_LINK = 'REPLACE_WITH_STRIPE_PAYMENT_LINK';
+  const PRICE = '$19';
+  const CONTACT = ''; // e.g. 'you@example.com' - leave empty to hide
+  // -------------------------------------------------------------------------
+  const ready = /^https:\/\/(buy\.stripe\.com|checkout\.stripe\.com|rzp\.io|razorpay\.com)\//.test(PAYMENT_LINK);
+  for (const a of document.querySelectorAll('.buy')) {
+    if (ready) { a.href = PAYMENT_LINK; a.rel = 'noopener'; }
+    else { a.setAttribute('aria-disabled', 'true'); a.removeAttribute('href'); a.textContent = 'Not available yet'; a.addEventListener('click', e => e.preventDefault()); }
+  }
+  for (const p of document.querySelectorAll('[data-price]')) p.textContent = ready ? PRICE : '';
+  const c = document.querySelector('[data-contact]');
+  if (CONTACT) { c.textContent = 'Email '; const l = document.createElement('a'); l.href = 'mailto:' + CONTACT; l.textContent = CONTACT; c.append(l, ' and I will reply.'); }
+</script>
+</body>
+</html>
